@@ -6,7 +6,7 @@ class Default(WorkerEntrypoint):
 		path = urlparse(request.url).path
   
 		# Creates a list of calendars to fetch
-		filename = path.lstrip('/').rstrip('.ics')
+		filename = path.lstrip('/').replace('.ics', '')
 		if "-" not in filename:
 			return Response("Invalid request", status=400)
 		else:
